@@ -1,0 +1,38 @@
+Ps -e  
+Ps -a   shows all running process  optional argument : ps -aef (for full format details)ps -U root -u root  :  ruuning by perticular user
+
+ps  -eo pid,user,%mem,cmd --sort=-%mem  > sort by memory 
+
+$ps -eo pid,user,cmd >>>> specified the particular column(shows three column)
+
+
+ps aux command output description column by column
+
+Column	Description
+USER 	The user account under which this process is running
+PID	Process ID of this process
+%CPU	CPU time used by this process (in percentage).
+%MEM	Physical memory used by this process (in percentage).
+VSZ	Virtual memory used by this process (in bytes).
+RSS	Resident Set Size, the non-swappable physical memory used by this process (in KiB)
+TTY	Terminal from which this process is started. Question mark (?) sign represents that this process is not started from a terminal.
+STAT	Process state. Explained in next table.
+START	Starting time and date of this process
+TIME	Total CPU time used by this process
+
+**ps aux stat code with description**
+
+D	uninterruptible sleep (usually IO)
+R	running or runnable (on run queue)
+S	interruptible sleep (waiting for an event to complete)
+T	stopped by job control signal
+t	stopped by debugger during the tracing
+w	paging (not valid since the 2.6.xx kernel)
+x	dead (should never be seen)
+Z	defunct ("zombie") process, terminated but not reaped by its parent
+< 	high-priority (not nice to other users)
+N	low-priority (nice to other users)
+L	has pages locked into memory (for real-time and custom IO)
+s	is a session leader
+l	is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
++	is in the foreground process group
